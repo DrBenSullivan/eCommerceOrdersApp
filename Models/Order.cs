@@ -7,11 +7,17 @@ namespace eCommerceOrdersApp.Models
     public class Order : IValidatableObject
     {
         [BindNever]
+        [Display(Name = "Order Number")]
         public int? OrderNo { get; set; } = new Random().Next(1, 99999);
+
         [Required(ErrorMessage = "{0} can't be blank")]
+        [Display(Name = "Order Date")]
         public DateTime? OrderDate { get; set; }
+
         [Required(ErrorMessage = "{0} can't be blank")]
+        [Display(Name = "Invoice Price")]
         public double? InvoicePrice { get; set; } = null;
+
         [Required(ErrorMessage = "{0} can't be blank")]
         public List<Product> Products { get; set; } = new List<Product>();
 
